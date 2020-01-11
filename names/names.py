@@ -14,11 +14,14 @@ f.close()
 duplicates = []
 
 namesBST = BinarySearchTree(names_1[0])
+
+# RUNTIME Complexity: O(n^2)
 # for name_1 in names_1:
 #     for name_2 in names_2:
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
+# RUNTIME Complexity: O(n)
 for x in names_1:
     namesBST.insert(x)
 for y in names_2:

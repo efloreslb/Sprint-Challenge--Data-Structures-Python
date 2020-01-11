@@ -26,6 +26,7 @@ class LinkedList:
       node.set_next(self.head)
     
     self.head = node
+    # print(self.head.value)
 
   def contains(self, value):
     if not self.head:
@@ -44,4 +45,23 @@ class LinkedList:
 
   def reverse_list(self):
     # TO BE COMPLETED
-    pass
+    prev = None
+    curr = self.head
+    nxt = None
+
+    while curr:
+      print(f'current: {curr.value}')
+      nxt = curr.next_node # assign nxt to be the current's next node
+      curr.next_node = prev # set the next node to the current's previous node
+      prev = curr # set prev to be the current node, when it moves to the next iteration, it will use this "current" now prev as it's next node
+      curr = nxt # set curr to be the next node and continue while loop
+
+    self.head = prev
+
+arr = LinkedList()
+arr.add_to_head(3)
+arr.add_to_head(5)
+arr.add_to_head(7)
+arr.add_to_head(9)
+
+arr.reverse_list()
