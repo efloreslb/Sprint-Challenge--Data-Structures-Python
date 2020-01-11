@@ -24,6 +24,7 @@ namesBST = BinarySearchTree(names_1[0])
 # RUNTIME Complexity: O(n)
 for x in names_1:
     namesBST.insert(x)
+    
 for y in names_2:
     if namesBST.contains(y):
         duplicates.append(y)
