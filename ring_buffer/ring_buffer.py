@@ -10,10 +10,10 @@ class RingBuffer:
 
     def append(self, item):
         if self.size >= self.capacity:
-            self.storage.remove_from_tail()
+            self.storage.remove_from_head()
             self.size -= 1
 
-        self.storage.add_to_head(item)
+        self.storage.add_to_tail(item)
         self.size += 1
 
 
@@ -21,12 +21,14 @@ class RingBuffer:
         # Note:  This is the only [] allowed
         list_buffer_contents = []
 
-        # TODO: Your code here
+        self.current = self.storage.head
 
-        for x in self.storage:
-            list_buffer_contents.append(x)
+        while self.current:
+            list_buffer_contents.append(self.current.value)
+            self.current = self.current.next
 
         print(f'Head Value: {self.storage.head.value}')
+        print(list_buffer_contents)
         return list_buffer_contents
 
 # ----------------Stretch Goal-------------------
@@ -48,4 +50,7 @@ buffer.append('b')
 buffer.append('c')
 buffer.append('d')
 buffer.append('e')
+buffer.get()
+
+buffer.append('f')
 buffer.get()
