@@ -9,6 +9,7 @@ class RingBuffer:
 
     def append(self, item):
         pass
+    
 
     def get(self):
         # Note:  This is the only [] allowed
